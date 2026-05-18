@@ -119,3 +119,9 @@ scripts/
 **/schemas/
 
 docs/
+!docs/
+docs/*
+!docs/superpowers/
+docs/superpowers/*
+!docs/superpowers/plans/
+!docs/superpowers/plans/**
