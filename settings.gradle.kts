@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -24,4 +25,17 @@ dependencyResolutionManagement {
 
 rootProject.name = "RentalIn"
 include(":app")
- 
+include(":core:common")
+include(":core:data")
+include(":core:database")
+include(":core:datastore")
+include(":core:designsystem")
+include(":core:domain")
+include(":core:model")
+include(":core:testing")
+include(":core:ui")
+include(":feature:customers")
+include(":feature:dashboard")
+include(":feature:inventory")
+include(":feature:rentals")
+include(":feature:settings")
