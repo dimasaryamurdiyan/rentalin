@@ -1,0 +1,31 @@
+<resources>
+    <string name="dashboard_title">RentalIn</string>
+    <string name="dashboard_greeting">Good morning, Alex</string>
+    <string name="dashboard_subtitle">Here\'s what\'s happening today.</string>
+    <string name="dashboard_summary_active">Active</string>
+    <string name="dashboard_summary_due_today">Due Today</string>
+    <string name="dashboard_summary_overdue">Overdue</string>
+    <string name="dashboard_summary_unpaid">Unpaid</string>
+    <string name="dashboard_summary_maintenance">Maintenance</string>
+    <string name="dashboard_summary_active_count">18</string>
+    <string name="dashboard_summary_due_today_count">3</string>
+    <string name="dashboard_summary_overdue_count">2</string>
+    <string name="dashboard_summary_unpaid_count">5</string>
+    <string name="dashboard_summary_maintenance_count">4</string>
+    <string name="dashboard_summary_rentals">Rentals</string>
+    <string name="dashboard_summary_items">Items</string>
+    <string name="dashboard_attention_title">Needs Attention</string>
+    <string name="dashboard_action_view_all">View all</string>
+    <string name="dashboard_action_add_rental">Add rental</string>
+    <string name="dashboard_customer_daniel_green">Daniel Green</string>
+    <string name="dashboard_customer_sarah_johnson">Sarah Johnson</string>
+    <string name="dashboard_customer_mike_brown">Mike Brown</string>
+    <string name="dashboard_item_dji_mavic">DJI Mavic 3</string>
+    <string name="dashboard_item_canon">Canon EOS R6</string>
+    <string name="dashboard_item_tent">Tent 4-Person</string>
+    <string name="dashboard_attention_overdue">2 days overdue</string>
+    <string name="dashboard_attention_due_today">Due today</string>
+    <string name="dashboard_attention_payment_due">Payment due</string>
+    <string name="dashboard_due_apr_28">Due Apr 28</string>
+    <string name="dashboard_due_apr_30">Due Apr 30</string>
+</resources>

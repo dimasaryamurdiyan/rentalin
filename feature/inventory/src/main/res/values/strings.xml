@@ -1,0 +1,37 @@
+<resources>
+    <string name="inventory_title">Inventory</string>
+    <string name="inventory_filter_all">All</string>
+    <string name="inventory_filter_camera">Camera</string>
+    <string name="inventory_filter_audio">Audio</string>
+    <string name="inventory_filter_tools">Tools</string>
+    <string name="inventory_filter_outdoor">Outdoor</string>
+    <string name="inventory_filter_power">Power</string>
+    <string name="inventory_filter_accessories">Accessories</string>
+    <string name="inventory_serialized_title">Serialized Items</string>
+    <string name="inventory_stock_title">Stock Items</string>
+    <string name="inventory_serialized_count">6</string>
+    <string name="inventory_stock_count">4</string>
+    <string name="inventory_status_available">Available</string>
+    <string name="inventory_status_rented">Rented</string>
+    <string name="inventory_status_maintenance">Maintenance</string>
+    <string name="inventory_status_lost">Lost</string>
+    <string name="inventory_status_low_stock">Low Stock</string>
+    <string name="inventory_item_dji">DJI Mavic 3</string>
+    <string name="inventory_item_canon">Canon EOS R6</string>
+    <string name="inventory_item_gopro">GoPro HERO12</string>
+    <string name="inventory_item_sony">Sony A7 IV</string>
+    <string name="inventory_item_macbook">MacBook Pro 16"</string>
+    <string name="inventory_item_zoom">Zoom H6 Recorder</string>
+    <string name="inventory_item_tent">Tent 4-Person</string>
+    <string name="inventory_item_tripod">Tripod Stand</string>
+    <string name="inventory_item_cable">Extension Cable 25ft</string>
+    <string name="inventory_sn_dji">SN: 3M3C2J00123</string>
+    <string name="inventory_sn_canon">SN: CR62001234</string>
+    <string name="inventory_sn_gopro">SN: GP12B34567</string>
+    <string name="inventory_sn_sony">SN: SA74A56789</string>
+    <string name="inventory_sn_macbook">SN: MBP16Z01234</string>
+    <string name="inventory_sn_zoom">SN: ZH6R00111</string>
+    <string name="inventory_units_12">12 units</string>
+    <string name="inventory_units_3">3 units</string>
+    <string name="inventory_units_8">8 units</string>
+</resources>
