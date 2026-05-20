@@ -1,5 +1,7 @@
 plugins {
     id("rentalin.android.library")
+    id("rentalin.android.hilt")
+    id("rentalin.android.room")
 }
 
 android {

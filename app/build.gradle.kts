@@ -1,6 +1,7 @@
 plugins {
     id("rentalin.android.application")
     id("rentalin.android.application.compose")
+    id("rentalin.android.hilt")
 }
 
 android {
@@ -15,10 +16,19 @@ android {
 
 dependencies {
     implementation(project(":core:designsystem"))
+    implementation(project(":core:database"))
+    implementation(project(":core:ui"))
+    implementation(project(":feature:customers"))
+    implementation(project(":feature:dashboard"))
+    implementation(project(":feature:inventory"))
+    implementation(project(":feature:rentals"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
