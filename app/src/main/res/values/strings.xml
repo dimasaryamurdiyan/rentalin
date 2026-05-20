@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">RentalIn</string>
+    <string name="tab_dashboard">Dashboard</string>
+    <string name="tab_rentals">Rentals</string>
+    <string name="tab_inventory">Inventory</string>
+    <string name="tab_customers">Customers</string>
+    <string name="action_search">Search</string>
+    <string name="action_menu">Menu</string>
+    <string name="action_filter">Filter</string>
 </resources>
