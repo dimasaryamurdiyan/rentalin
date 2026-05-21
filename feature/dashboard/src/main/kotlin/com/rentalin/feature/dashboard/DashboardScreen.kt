@@ -22,12 +22,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.rentalin.core.designsystem.theme.RentalInDimens
 import com.rentalin.core.designsystem.theme.RentalInOnPrimary
 import com.rentalin.core.designsystem.theme.RentalInOnSurface
 import com.rentalin.core.designsystem.theme.RentalInOnSurfaceVariant
 import com.rentalin.core.designsystem.theme.RentalInPrimary
-import com.rentalin.core.designsystem.theme.RentalInSurfaceContainerLowest
+import com.rentalin.core.designsystem.theme.RentalInTheme
 import com.rentalin.core.ui.RentalInAvatar
 import com.rentalin.core.ui.RentalInSectionHeader
 import com.rentalin.core.ui.RentalInStatusStyle
@@ -78,6 +79,14 @@ fun DashboardScreen(
     }
 }
 
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun DashboardScreenPreview() {
+    RentalInTheme {
+        DashboardScreen()
+    }
+}
+
 @Composable
 fun DashboardAddRentalButton() {
     FloatingActionButton(
@@ -89,6 +98,14 @@ fun DashboardAddRentalButton() {
             imageVector = Icons.Outlined.Add,
             contentDescription = stringResource(R.string.dashboard_action_add_rental),
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun DashboardAddRentalButtonPreview() {
+    RentalInTheme {
+        DashboardAddRentalButton()
     }
 }
 
@@ -110,6 +127,14 @@ private fun DashboardSummaryGrid() {
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun DashboardSummaryGridPreview() {
+    RentalInTheme {
+        DashboardSummaryGrid()
     }
 }
 
@@ -147,11 +172,30 @@ private fun DashboardAttentionRow(item: AttentionItem) {
     }
 }
 
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun DashboardAttentionRowPreview() {
+    RentalInTheme {
+        DashboardAttentionRow(attentionItems().first())
+    }
+}
+
 @Composable
 private fun AttentionItem.styleColor() = when (style) {
     RentalInStatusStyle.Overdue -> MaterialTheme.colorScheme.error
     RentalInStatusStyle.DueToday -> MaterialTheme.colorScheme.tertiary
     else -> RentalInPrimary
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AttentionItemStyleColorPreview() {
+    RentalInTheme {
+        Text(
+            text = stringResource(R.string.dashboard_attention_overdue),
+            color = attentionItems().first().styleColor(),
+        )
+    }
 }
 
 private data class SummaryItem(

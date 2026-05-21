@@ -12,7 +12,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.rentalin.core.designsystem.theme.RentalInDimens
+import com.rentalin.core.designsystem.theme.RentalInTheme
 import com.rentalin.core.ui.RentalInFilterChip
 import com.rentalin.core.ui.RentalInRentalCard
 import com.rentalin.core.ui.RentalInStatusStyle
@@ -21,7 +23,10 @@ import com.rentalin.core.ui.RentalInStatusStyle
 fun RentalsScreen(
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier.fillMaxSize()) {
+    Column(modifier = modifier
+        .fillMaxSize()
+        .padding(top = RentalInDimens.Md)
+    ) {
         Column(
             modifier = Modifier.padding(
                 start = RentalInDimens.ScreenPaddingWide,
@@ -60,6 +65,14 @@ fun RentalsScreen(
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun RentalsScreenPreview() {
+    RentalInTheme {
+        RentalsScreen()
     }
 }
 

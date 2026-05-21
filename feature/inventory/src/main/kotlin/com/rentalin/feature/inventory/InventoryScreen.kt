@@ -13,10 +13,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.rentalin.core.designsystem.theme.RentalInDimens
 import com.rentalin.core.designsystem.theme.RentalInOnSurface
 import com.rentalin.core.designsystem.theme.RentalInPrimary
 import com.rentalin.core.designsystem.theme.RentalInPrimaryFixed
+import com.rentalin.core.designsystem.theme.RentalInTheme
 import com.rentalin.core.ui.RentalInFilterChip
 import com.rentalin.core.ui.RentalInInventoryRow
 import com.rentalin.core.ui.RentalInSectionHeader
@@ -77,6 +79,14 @@ fun InventoryScreen(
     }
 }
 
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun InventoryScreenPreview() {
+    RentalInTheme {
+        InventoryScreen()
+    }
+}
+
 @Composable
 private fun InventorySectionHeader(
     title: String,
@@ -90,6 +100,18 @@ private fun InventorySectionHeader(
             RentalInStatusChip(label = count, style = RentalInStatusStyle.Active)
         },
     )
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun InventorySectionHeaderPreview() {
+    RentalInTheme {
+        InventorySectionHeader(
+            title = stringResource(R.string.inventory_serialized_title),
+            count = stringResource(R.string.inventory_serialized_count),
+            modifier = Modifier.padding(RentalInDimens.Md),
+        )
+    }
 }
 
 private data class InventoryItem(

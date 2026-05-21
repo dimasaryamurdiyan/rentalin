@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.rentalin.core.designsystem.theme.RentalInDimens
 import com.rentalin.core.designsystem.theme.RentalInError
 import com.rentalin.core.designsystem.theme.RentalInOnSurface
@@ -30,6 +31,7 @@ import com.rentalin.core.designsystem.theme.RentalInOnSurfaceVariant
 import com.rentalin.core.designsystem.theme.RentalInPrimary
 import com.rentalin.core.designsystem.theme.RentalInSuccess
 import com.rentalin.core.designsystem.theme.RentalInSurfaceContainer
+import com.rentalin.core.designsystem.theme.RentalInTheme
 import com.rentalin.core.ui.RentalInCustomerHeader
 import com.rentalin.core.ui.RentalInMetric
 import com.rentalin.core.ui.RentalInPrimaryBottomActionButton
@@ -106,6 +108,14 @@ fun CustomersScreen(
     }
 }
 
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun CustomersScreenPreview() {
+    RentalInTheme {
+        CustomersScreen()
+    }
+}
+
 @Composable
 private fun CustomerAction(
     label: String,
@@ -123,6 +133,17 @@ private fun CustomerAction(
             )
             Text(text = label, style = MaterialTheme.typography.labelMedium, color = RentalInOnSurfaceVariant)
         }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 180)
+@Composable
+private fun CustomerActionPreview() {
+    RentalInTheme {
+        CustomerAction(
+            label = stringResource(R.string.customers_action_call),
+            icon = Icons.Outlined.Call,
+        )
     }
 }
 
@@ -161,6 +182,14 @@ private fun AccountOverview() {
     }
 }
 
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun AccountOverviewPreview() {
+    RentalInTheme {
+        AccountOverview()
+    }
+}
+
 @Composable
 private fun CustomerNotes() {
     Column(verticalArrangement = Arrangement.spacedBy(RentalInDimens.Xs)) {
@@ -179,6 +208,14 @@ private fun CustomerNotes() {
             style = MaterialTheme.typography.bodySmall,
             color = RentalInOnSurfaceVariant,
         )
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun CustomerNotesPreview() {
+    RentalInTheme {
+        CustomerNotes()
     }
 }
 
@@ -203,6 +240,14 @@ private fun ActivityTabs() {
             style = MaterialTheme.typography.titleSmall,
             color = RentalInOnSurfaceVariant,
         )
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun ActivityTabsPreview() {
+    RentalInTheme {
+        ActivityTabs()
     }
 }
 
@@ -235,6 +280,14 @@ private fun CustomerRentalRow(rental: CustomerRental) {
             )
         }
         HorizontalDivider(color = RentalInSurfaceContainer)
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun CustomerRentalRowPreview() {
+    RentalInTheme {
+        CustomerRentalRow(customerRentals().first())
     }
 }
 
