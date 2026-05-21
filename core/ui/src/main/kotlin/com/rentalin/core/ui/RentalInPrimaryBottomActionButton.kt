@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -14,11 +16,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rentalin.core.designsystem.theme.RentalInDimens
 import com.rentalin.core.designsystem.theme.RentalInOnPrimary
 import com.rentalin.core.designsystem.theme.RentalInPrimary
 import com.rentalin.core.designsystem.theme.RentalInRadii
+import com.rentalin.core.designsystem.theme.RentalInTheme
 
 @Composable
 fun RentalInPrimaryBottomActionButton(
@@ -48,5 +53,17 @@ fun RentalInPrimaryBottomActionButton(
             }
             Text(text = label, style = MaterialTheme.typography.labelLarge)
         }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun RentalInPrimaryBottomActionButtonPreview() {
+    RentalInTheme {
+        RentalInPrimaryBottomActionButton(
+            label = stringResource(R.string.preview_action_create_rental),
+            icon = Icons.Outlined.Add,
+            modifier = Modifier.padding(RentalInDimens.Md),
+        )
     }
 }

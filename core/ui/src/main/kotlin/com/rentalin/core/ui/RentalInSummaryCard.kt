@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Inventory2
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -19,8 +21,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rentalin.core.designsystem.theme.RentalInDimens
 import com.rentalin.core.designsystem.theme.RentalInOnSurface
@@ -28,6 +32,7 @@ import com.rentalin.core.designsystem.theme.RentalInOnSurfaceVariant
 import com.rentalin.core.designsystem.theme.RentalInRadii
 import com.rentalin.core.designsystem.theme.RentalInSurfaceContainerHigh
 import com.rentalin.core.designsystem.theme.RentalInSurfaceContainerLowest
+import com.rentalin.core.designsystem.theme.RentalInTheme
 
 @Composable
 fun RentalInSummaryCard(
@@ -89,5 +94,20 @@ fun RentalInSummaryCard(
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun RentalInSummaryCardPreview() {
+    RentalInTheme {
+        RentalInSummaryCard(
+            title = stringResource(R.string.preview_status_active),
+            value = stringResource(R.string.preview_summary_value),
+            supportingText = stringResource(R.string.preview_summary_supporting),
+            icon = Icons.Outlined.Inventory2,
+            style = RentalInStatusStyle.Active,
+            modifier = Modifier.padding(RentalInDimens.Md),
+        )
     }
 }

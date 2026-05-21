@@ -18,7 +18,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rentalin.core.designsystem.theme.RentalInDimens
 import com.rentalin.core.designsystem.theme.RentalInOnSurface
@@ -28,6 +30,7 @@ import com.rentalin.core.designsystem.theme.RentalInPrimary
 import com.rentalin.core.designsystem.theme.RentalInRadii
 import com.rentalin.core.designsystem.theme.RentalInSurfaceContainerHigh
 import com.rentalin.core.designsystem.theme.RentalInSurfaceContainerLowest
+import com.rentalin.core.designsystem.theme.RentalInTheme
 
 @Composable
 fun RentalInInventoryRow(
@@ -77,6 +80,20 @@ fun RentalInInventoryRow(
             contentDescription = null,
             tint = RentalInOutlineVariant,
             modifier = Modifier.size(16.dp),
+        )
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun RentalInInventoryRowPreview() {
+    RentalInTheme {
+        RentalInInventoryRow(
+            title = stringResource(R.string.preview_item_gopro),
+            subtitle = stringResource(R.string.preview_sn_gopro),
+            status = stringResource(R.string.preview_status_available),
+            statusStyle = RentalInStatusStyle.Available,
+            modifier = Modifier.padding(RentalInDimens.Md),
         )
     }
 }

@@ -14,12 +14,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rentalin.core.designsystem.theme.RentalInDimens
 import com.rentalin.core.designsystem.theme.RentalInOnSurface
 import com.rentalin.core.designsystem.theme.RentalInOnSurfaceVariant
 import com.rentalin.core.designsystem.theme.RentalInSurfaceContainerHigh
 import com.rentalin.core.designsystem.theme.RentalInSurfaceContainerLowest
+import com.rentalin.core.designsystem.theme.RentalInTheme
 
 @Composable
 fun RentalInRentalCard(
@@ -80,5 +83,23 @@ fun RentalInRentalCard(
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun RentalInRentalCardPreview() {
+    RentalInTheme {
+        RentalInRentalCard(
+            initials = stringResource(R.string.preview_initials_daniel),
+            customerName = stringResource(R.string.preview_customer_daniel),
+            itemName = stringResource(R.string.preview_item_dji),
+            dateRange = stringResource(R.string.preview_date_range),
+            status = stringResource(R.string.preview_status_overdue),
+            statusStyle = RentalInStatusStyle.Overdue,
+            amount = stringResource(R.string.preview_amount_120),
+            paymentLabel = stringResource(R.string.preview_payment_unpaid),
+            modifier = Modifier.padding(RentalInDimens.Md),
+        )
     }
 }
