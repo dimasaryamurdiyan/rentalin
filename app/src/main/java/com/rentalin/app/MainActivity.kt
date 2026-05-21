@@ -4,16 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Assignment
+import androidx.compose.material.icons.automirrored.outlined.Assignment
+import androidx.compose.material.icons.filled.Dashboard
+import androidx.compose.material.icons.filled.Groups
+import androidx.compose.material.icons.filled.Inventory2
+import androidx.compose.material.icons.outlined.Dashboard
 import androidx.compose.material.icons.outlined.FilterList
-import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Groups
 import androidx.compose.material.icons.outlined.Inventory2
 import androidx.compose.material.icons.outlined.MoreVert
-import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.Search
-import androidx.compose.material.icons.outlined.Work
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -30,8 +39,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavDestination
-import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -39,6 +48,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.rentalin.core.designsystem.theme.RentalInOnSurfaceVariant
 import com.rentalin.core.designsystem.theme.RentalInPrimary
+import com.rentalin.core.designsystem.theme.RentalInPrimaryFixed
 import com.rentalin.core.designsystem.theme.RentalInSurfaceContainerLowest
 import com.rentalin.core.designsystem.theme.RentalInTheme
 import com.rentalin.feature.customers.CustomersScreen
@@ -92,7 +102,7 @@ fun RentalInApp() {
         },
         bottomBar = {
             RentalInBottomBar(
-                currentDestination = currentDestination,
+                currentRoute = currentRoute,
                 onDestinationClick = { destination ->
                     navController.navigate(destination.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
@@ -114,6 +124,10 @@ fun RentalInApp() {
             navController = navController,
             startDestination = MainDestination.Dashboard.route,
             modifier = Modifier.padding(innerPadding),
+            enterTransition = { tabEnterTransition() },
+            exitTransition = { tabExitTransition() },
+            popEnterTransition = { tabEnterTransition() },
+            popExitTransition = { tabExitTransition() },
         ) {
             composable(MainDestination.Dashboard.route) {
                 DashboardScreen()
@@ -128,6 +142,14 @@ fun RentalInApp() {
                 CustomersScreen()
             }
         }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun RentalInAppPreview() {
+    RentalInTheme {
+        RentalInApp()
     }
 }
 
@@ -155,20 +177,32 @@ private fun HeaderActions(route: String) {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+private fun HeaderActionsPreview() {
+    RentalInTheme {
+        HeaderActions(MainDestination.Dashboard.route)
+    }
+}
+
 @Composable
 private fun RentalInBottomBar(
-    currentDestination: NavDestination?,
+    currentRoute: String,
     onDestinationClick: (MainDestination) -> Unit,
 ) {
     NavigationBar(containerColor = RentalInSurfaceContainerLowest) {
         MainDestination.entries.forEach { destination ->
-            val selected = currentDestination?.hierarchy?.any { it.route == destination.route } == true
+            val selected = currentRoute == destination.route
             NavigationBarItem(
                 selected = selected,
                 onClick = { onDestinationClick(destination) },
                 icon = {
                     Icon(
-                        imageVector = destination.icon,
+                        imageVector = if (selected) {
+                            destination.selectedIcon
+                        } else {
+                            destination.unselectedIcon
+                        },
                         contentDescription = stringResource(destination.labelRes),
                     )
                 },
@@ -180,38 +214,76 @@ private fun RentalInBottomBar(
                     selectedTextColor = RentalInPrimary,
                     unselectedIconColor = RentalInOnSurfaceVariant,
                     unselectedTextColor = RentalInOnSurfaceVariant,
-                    indicatorColor = RentalInSurfaceContainerLowest,
+                    indicatorColor = RentalInPrimaryFixed,
                 ),
             )
         }
     }
 }
 
+@Preview(showBackground = true, widthDp = 390)
+@Composable
+private fun RentalInBottomBarPreview() {
+    RentalInTheme {
+        RentalInBottomBar(
+            currentRoute = MainDestination.Dashboard.route,
+            onDestinationClick = {},
+        )
+    }
+}
+
 private enum class MainDestination(
     val route: String,
     val labelRes: Int,
-    val icon: ImageVector,
+    val selectedIcon: ImageVector,
+    val unselectedIcon: ImageVector,
 ) {
     Dashboard(
         route = "dashboard",
         labelRes = R.string.tab_dashboard,
-        icon = Icons.Outlined.Home,
+        selectedIcon = Icons.Filled.Dashboard,
+        unselectedIcon = Icons.Outlined.Dashboard,
     ),
     Rentals(
         route = "rentals",
         labelRes = R.string.tab_rentals,
-        icon = Icons.Outlined.Work,
+        selectedIcon = Icons.AutoMirrored.Filled.Assignment,
+        unselectedIcon = Icons.AutoMirrored.Outlined.Assignment,
     ),
     Inventory(
         route = "inventory",
         labelRes = R.string.tab_inventory,
-        icon = Icons.Outlined.Inventory2,
+        selectedIcon = Icons.Filled.Inventory2,
+        unselectedIcon = Icons.Outlined.Inventory2,
     ),
     Customers(
         route = "customers",
         labelRes = R.string.tab_customers,
-        icon = Icons.Outlined.Person,
+        selectedIcon = Icons.Filled.Groups,
+        unselectedIcon = Icons.Outlined.Groups,
     ),
+}
+
+private fun AnimatedContentTransitionScope<NavBackStackEntry>.tabEnterTransition(): EnterTransition {
+    return slideIntoContainer(tabSlideDirection()) + fadeIn()
+}
+
+private fun AnimatedContentTransitionScope<NavBackStackEntry>.tabExitTransition(): ExitTransition {
+    return slideOutOfContainer(tabSlideDirection()) + fadeOut()
+}
+
+private fun AnimatedContentTransitionScope<NavBackStackEntry>.tabSlideDirection(): AnimatedContentTransitionScope.SlideDirection {
+    val initialIndex = mainDestinationIndex(initialState.destination.route)
+    val targetIndex = mainDestinationIndex(targetState.destination.route)
+    return if (targetIndex >= initialIndex) {
+        AnimatedContentTransitionScope.SlideDirection.Left
+    } else {
+        AnimatedContentTransitionScope.SlideDirection.Right
+    }
+}
+
+private fun mainDestinationIndex(route: String?): Int {
+    return MainDestination.entries.indexOfFirst { it.route == route }.coerceAtLeast(0)
 }
 
 private fun titleForRoute(route: String) = when (route) {
