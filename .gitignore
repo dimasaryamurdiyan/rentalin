@@ -125,3 +125,5 @@ docs/*
 docs/superpowers/*
 !docs/superpowers/plans/
 !docs/superpowers/plans/**
+!docs/prd/
+!docs/prd/**
