@@ -12,7 +12,9 @@ repositories {
 
 dependencies {
     compileOnly(libs.android.gradlePlugin)
+    compileOnly(libs.hilt.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
 }
 
 gradlePlugin {
@@ -36,6 +38,14 @@ gradlePlugin {
         register("kotlinJvm") {
             id = "rentalin.kotlin.jvm"
             implementationClass = "convention.KotlinJvmConventionPlugin"
+        }
+        register("androidHilt") {
+            id = "rentalin.android.hilt"
+            implementationClass = "convention.AndroidHiltConventionPlugin"
+        }
+        register("androidRoom") {
+            id = "rentalin.android.room"
+            implementationClass = "convention.AndroidRoomConventionPlugin"
         }
     }
 }

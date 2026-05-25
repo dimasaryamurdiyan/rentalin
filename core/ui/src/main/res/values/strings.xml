@@ -1,0 +1,28 @@
+<resources>
+    <string name="preview_initials_daniel">DG</string>
+    <string name="preview_status_active">Active</string>
+    <string name="preview_status_due_today">Due Today</string>
+    <string name="preview_status_overdue">Overdue</string>
+    <string name="preview_status_maintenance">Maintenance</string>
+    <string name="preview_status_available">Available</string>
+    <string name="preview_filter_all">All</string>
+    <string name="preview_filter_reserved">Reserved</string>
+    <string name="preview_summary_value">18</string>
+    <string name="preview_summary_supporting">Rentals</string>
+    <string name="preview_customer_daniel">Daniel Green</string>
+    <string name="preview_item_dji">DJI Mavic 3</string>
+    <string name="preview_item_gopro">GoPro HERO12</string>
+    <string name="preview_date_range">Apr 26 - May 2</string>
+    <string name="preview_amount_120">$120.00</string>
+    <string name="preview_payment_unpaid">Unpaid</string>
+    <string name="preview_sn_gopro">SN: GP12B34567</string>
+    <string name="preview_phone_daniel">(555) 123-4567</string>
+    <string name="preview_email_daniel">daniel.green@email.com</string>
+    <string name="preview_section_attention">Needs Attention</string>
+    <string name="preview_total_rentals">Total Rentals</string>
+    <string name="preview_total_rentals_value">12</string>
+    <string name="preview_warning_title">GoPro HERO12 has only 1 unit available.</string>
+    <string name="preview_warning_message">After this rental, it will be unavailable.</string>
+    <string name="preview_action_create_rental">Create Rental</string>
+    <string name="preview_balance">Balance</string>
+</resources>

@@ -1,48 +1,45 @@
 package com.rentalin.core.designsystem.theme
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.Text
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import com.rentalin.core.designsystem.R
 
 private val LightColorScheme = lightColorScheme(
     primary = RentalInPrimary,
-    onPrimary = Color.White,
-    primaryContainer = RentalInPrimaryDark,
-    onPrimaryContainer = Color.White,
-    secondary = RentalInSuccess,
-    onSecondary = Color.White,
-    tertiary = RentalInWarning,
-    onTertiary = RentalInText,
+    onPrimary = RentalInOnPrimary,
+    primaryContainer = RentalInPrimaryContainer,
+    onPrimaryContainer = RentalInOnPrimaryContainer,
+    secondary = RentalInSecondary,
+    onSecondary = RentalInOnSecondary,
+    secondaryContainer = RentalInSecondaryContainer,
+    onSecondaryContainer = RentalInOnSecondaryContainer,
+    tertiary = RentalInTertiary,
+    onTertiary = RentalInOnTertiary,
+    tertiaryContainer = RentalInTertiaryContainer,
+    onTertiaryContainer = RentalInOnTertiaryContainer,
     background = RentalInBackground,
-    onBackground = RentalInText,
+    onBackground = RentalInOnBackground,
     surface = RentalInSurface,
-    onSurface = RentalInText,
-    surfaceVariant = RentalInBackground,
-    onSurfaceVariant = RentalInMutedText,
-    outline = RentalInBorder,
+    onSurface = RentalInOnSurface,
+    surfaceVariant = RentalInSurfaceVariant,
+    onSurfaceVariant = RentalInOnSurfaceVariant,
+    outline = RentalInOutline,
+    outlineVariant = RentalInOutlineVariant,
     error = RentalInError,
-    onError = Color.White,
-)
-
-private val DarkColorScheme = darkColorScheme(
-    primary = RentalInPrimary,
-    onPrimary = Color.White,
-    secondary = RentalInSuccess,
-    onSecondary = Color.White,
-    tertiary = RentalInWarning,
-    onTertiary = RentalInText,
-    background = RentalInText,
-    onBackground = RentalInBackground,
-    surface = Color(0xFF1A1D1C),
-    onSurface = RentalInBackground,
-    surfaceVariant = Color(0xFF252927),
-    onSurfaceVariant = Color(0xFFC8CBC7),
-    outline = RentalInMaintenance,
-    error = RentalInError,
-    onError = Color.White,
+    onError = RentalInOnError,
+    errorContainer = RentalInErrorContainer,
+    onErrorContainer = RentalInOnErrorContainer,
+    inverseSurface = RentalInInverseSurface,
+    inverseOnSurface = RentalInInverseOnSurface,
+    inversePrimary = RentalInInversePrimary,
+    surfaceTint = RentalInSurfaceTint,
 )
 
 @Composable
@@ -51,8 +48,21 @@ fun RentalInTheme(
     content: @Composable () -> Unit,
 ) {
     MaterialTheme(
-        colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme,
+        colorScheme = LightColorScheme,
         typography = RentalInTypography,
         content = content,
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun RentalInThemePreview() {
+    RentalInTheme {
+        Text(
+            text = stringResource(R.string.preview_theme_title),
+            modifier = Modifier.padding(RentalInDimens.Md),
+            style = MaterialTheme.typography.titleLarge,
+            color = RentalInOnSurface,
+        )
+    }
 }
