@@ -1,4 +1,4 @@
-package com.rentalin.core.common.repository
+package com.rentalin.core.domain.repository
 
 import com.rentalin.core.model.Customer
 import com.rentalin.core.model.CustomerId

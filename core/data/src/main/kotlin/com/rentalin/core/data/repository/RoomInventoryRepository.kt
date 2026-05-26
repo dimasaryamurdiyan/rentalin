@@ -1,6 +1,6 @@
 package com.rentalin.core.data.repository
 
-import com.rentalin.core.common.repository.InventoryRepository
+import com.rentalin.core.domain.repository.InventoryRepository
 import com.rentalin.core.data.model.asEntity
 import com.rentalin.core.data.model.asModel
 import com.rentalin.core.database.dao.ItemDao

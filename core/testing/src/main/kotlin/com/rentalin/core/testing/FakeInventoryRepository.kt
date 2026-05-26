@@ -1,6 +1,6 @@
 package com.rentalin.core.testing
 
-import com.rentalin.core.common.repository.InventoryRepository
+import com.rentalin.core.domain.repository.InventoryRepository
 import com.rentalin.core.model.Item
 import com.rentalin.core.model.ItemId
 import com.rentalin.core.model.ItemUnit

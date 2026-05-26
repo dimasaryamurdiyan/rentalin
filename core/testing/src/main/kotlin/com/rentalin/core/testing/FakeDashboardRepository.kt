@@ -1,7 +1,7 @@
 package com.rentalin.core.testing
 
-import com.rentalin.core.common.repository.DashboardData
-import com.rentalin.core.common.repository.DashboardRepository
+import com.rentalin.core.domain.repository.DashboardData
+import com.rentalin.core.domain.repository.DashboardRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 

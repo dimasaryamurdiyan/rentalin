@@ -1,6 +1,6 @@
 package com.rentalin.core.testing
 
-import com.rentalin.core.common.repository.RentalRepository
+import com.rentalin.core.domain.repository.RentalRepository
 import com.rentalin.core.model.DateRange
 import com.rentalin.core.model.ItemId
 import com.rentalin.core.model.ItemUnitId

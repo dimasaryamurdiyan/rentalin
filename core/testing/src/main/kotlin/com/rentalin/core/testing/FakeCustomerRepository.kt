@@ -1,6 +1,6 @@
 package com.rentalin.core.testing
 
-import com.rentalin.core.common.repository.CustomerRepository
+import com.rentalin.core.domain.repository.CustomerRepository
 import com.rentalin.core.model.Customer
 import com.rentalin.core.model.CustomerId
 import kotlinx.coroutines.flow.Flow

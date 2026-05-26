@@ -1,6 +1,6 @@
 package com.rentalin.core.domain
 
-import com.rentalin.core.common.repository.DashboardData
+import com.rentalin.core.domain.repository.DashboardData
 import com.rentalin.core.domain.availability.CheckQuantityAvailabilityUseCase
 import com.rentalin.core.domain.availability.CheckSerializedAvailabilityUseCase
 import com.rentalin.core.domain.dashboard.ObserveDashboardSummaryUseCase

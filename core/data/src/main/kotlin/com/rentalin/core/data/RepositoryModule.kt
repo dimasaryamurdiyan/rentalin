@@ -1,9 +1,9 @@
 package com.rentalin.core.data
 
-import com.rentalin.core.common.repository.CustomerRepository
-import com.rentalin.core.common.repository.DashboardRepository
-import com.rentalin.core.common.repository.InventoryRepository
-import com.rentalin.core.common.repository.RentalRepository
+import com.rentalin.core.domain.repository.CustomerRepository
+import com.rentalin.core.domain.repository.DashboardRepository
+import com.rentalin.core.domain.repository.InventoryRepository
+import com.rentalin.core.domain.repository.RentalRepository
 import com.rentalin.core.data.repository.RoomCustomerRepository
 import com.rentalin.core.data.repository.RoomDashboardRepository
 import com.rentalin.core.data.repository.RoomInventoryRepository

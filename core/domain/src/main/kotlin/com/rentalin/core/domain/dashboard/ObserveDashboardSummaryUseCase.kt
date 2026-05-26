@@ -1,6 +1,6 @@
 package com.rentalin.core.domain.dashboard
 
-import com.rentalin.core.common.repository.DashboardRepository
+import com.rentalin.core.domain.repository.DashboardRepository
 import com.rentalin.core.domain.payment.CalculatePaymentSummaryUseCase
 import com.rentalin.core.domain.rental.RentalOperationalStateUseCase
 import com.rentalin.core.domain.time.CurrentDateProvider

@@ -8,9 +8,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:common"))
     implementation(project(":core:database"))
     implementation(project(":core:datastore"))
+    implementation(project(":core:domain"))
     implementation(project(":core:model"))
     implementation(libs.kotlinx.coroutines.core)
     testImplementation(libs.junit)
